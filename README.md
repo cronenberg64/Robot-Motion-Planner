@@ -5,6 +5,8 @@
 [![ROS2](https://img.shields.io/badge/ROS2-Humble-blue)](https://docs.ros.org/en/humble/)
 [![MoveIt2](https://img.shields.io/badge/MoveIt2-2.0-green)](https://moveit.ros.org/)
 
+**Live Demo:** [https://robot-motion-planner.netlify.app](https://robot-motion-planner.netlify.app)
+
 An AI-powered motion sequence planner that transforms natural language descriptions into precise robot arm trajectories, generating ROS2-compatible `trajectory_msgs/JointTrajectory` messages for seamless integration with MoveIt2.
 
 ## Features
@@ -54,6 +56,15 @@ firebase deploy
 sudo apt install ros-humble-moveit
 # Configure your robot's URDF/XACRO files
 ```
+
+### Environment Variables
+You must set the following environment variable for Google GenAI integration:
+
+```
+GEMINI_API_KEY=your_actual_api_key_here
+```
+
+For local development, add this to your .env.local file. For deployment (e.g., Netlify), set it in your site environment variables.
 
 ## Usage
 
