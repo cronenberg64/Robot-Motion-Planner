@@ -38,19 +38,26 @@ function SubmitButton() {
 export function MotionPlanner() {
   const [motionPlan, setMotionPlan] = useState<MotionPlan | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [prompt, setPrompt] = useState<string>("");
   const { toast } = useToast();
 
   const handleFormSubmit = async (formData: FormData) => {
     setError(null);
     setMotionPlan(null);
-    const prompt = formData.get('prompt') as string;
-    const { plan, error: apiError } = await generateMotionPlan(prompt);
+    const promptValue = prompt;
+    const { plan, error: apiError } = await generateMotionPlan(promptValue);
 
     if (apiError) {
       setError(apiError);
     } else {
       setMotionPlan(plan);
     }
+  };
+
+  const handleClear = () => {
+    setPrompt("");
+    setMotionPlan(null);
+    setError(null);
   };
   
   const handleAngleChange = (stepId: string, jointName: string, angleIndex: number, newValue: number) => {
@@ -136,9 +143,14 @@ export function MotionPlanner() {
               placeholder="e.g., Make the robot wave, then point, then rest."
               className="min-h-[100px] text-base"
               required
+              value={prompt}
+              onChange={e => setPrompt(e.target.value)}
             />
           </div>
-          <div className="flex justify-end">
+          <div className="flex justify-end gap-2">
+            <Button type="button" variant="outline" onClick={handleClear} disabled={!prompt && !motionPlan && !error}>
+              Clear
+            </Button>
             <SubmitButton />
           </div>
         </form>
