@@ -22,7 +22,7 @@ An AI-powered motion sequence planner that transforms natural language descripti
 ## Tech Stack
 
 - **Frontend**: Next.js 14, TypeScript, Tailwind CSS, shadcn/ui, Three.js
-- **Backend**: Firebase Studio, OpenAI GPT-4, LangChain
+- **Backend**: Firebase Studio, Google Gemini (via Genkit), LangChain
 - **Robotics**: ROS2 Humble, MoveIt2, trajectory_msgs
 
 ## Setup Instructions
@@ -103,7 +103,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **[ROS](https://www.ros.org/)** - Robot Operating System foundation
 - **[MoveIt](https://moveit.ros.org/)** - Motion planning framework
-- **[OpenAI](https://openai.com/)** - GPT-4 API for natural language processing
+- **[Google Gemini](https://ai.google.dev/gemini-api/docs)** - Natural language processing
 - **[Firebase](https://firebase.google.com/)** - Backend infrastructure
 - **[Next.js](https://nextjs.org/)** - React framework
 - **[Three.js](https://threejs.org/)** - 3D graphics library
